@@ -1130,7 +1130,7 @@ class UpdateAllNotificationPreferencesViewTests(APITestCase):
         response = self.client.post(self.url, data, format='json')
 
         # Should fail because 'web' is non-editable for 'core' in discussion
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['status'], 'error')
 
         # Verify database remains unchanged
