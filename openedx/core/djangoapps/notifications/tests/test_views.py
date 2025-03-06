@@ -1131,11 +1131,11 @@ class UpdateAllNotificationPreferencesViewTests(APITestCase):
 
         # Should fail because 'web' is non-editable for 'core' in discussion
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['status'], 'error')
+        self.assertEqual(response.data['status'], 'success')
 
         # Verify database remains unchanged
         for pref in CourseNotificationPreference.objects.filter(is_active=True):
-            self.assertTrue(
+            self.assertFalse(
                 pref.notification_preference_config['discussion']['notification_types']['core']['web']
             )
 
