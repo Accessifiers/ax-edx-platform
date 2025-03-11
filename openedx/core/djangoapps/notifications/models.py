@@ -277,6 +277,9 @@ class NotificationBrazeCampaigns(TimeStampedModel):
 
     @classmethod
     def get_notification_campaign_id(cls, notification_type):
+        """
+        Returns the braze campaign id for the given notification type.
+        """
         try:
             return cls.objects.get(notification_type=notification_type).braze_campaign_id
         except cls.DoesNotExist:
