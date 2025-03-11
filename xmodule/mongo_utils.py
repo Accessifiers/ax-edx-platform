@@ -62,7 +62,6 @@ def connect_to_mongodb(
         'port': port,
         'tz_aware': tz_aware,
         'document_class': dict,
-        'retryWrites': False, # universally disable retryWrites to be compatible with Azure
         **kwargs,
     }
 
